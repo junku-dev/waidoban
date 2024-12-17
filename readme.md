@@ -37,4 +37,4 @@ chmod +x init.sh
 ```
 
 ### run.sh
-A bash script that starts the virtual env and then runs the program via ```python3 main.py```.init.sh needs to be executable.
+A bash script that starts the virtual env and then runs the program via ```python3 main.py```.
