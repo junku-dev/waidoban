@@ -13,9 +13,9 @@ pip3 install PyPDF2
 ```
 
 PyPDF2 is used to read file metadata.
-In Cram it is used to collect the number of pages easily.
+In cram it is used to collect the number of pages easily.
 
-### Apps
+### dependencies
 
 debian/ubuntu:
 
@@ -23,3 +23,18 @@ debian/ubuntu:
 sudo apt install ghostscript
 sudo apt install qpdf
 ```
+
+### optional install script
+#### init.sh
+
+included will be an 'init.sh' bash script which can be used to install all dependencies.
+The script will check if you have already created a virtual env for python and install python dependencies as well as ghostscript and qpdf. It will make also make 'run.sh' executable.
+
+init.sh needs to be executable.
+
+```
+chmod +x init.sh
+```
+
+### run.sh
+A bash script that starts the virtual env and then runs the program via ```python3 main.py```.init.sh needs to be executable.
