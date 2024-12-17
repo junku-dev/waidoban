@@ -2,7 +2,7 @@
 make my ebooks smaller cause I like to read manga and HQ scans are too damn big for my simple little ereader.
 
 ## About
-Cram is essentially a "wrapper" CLI for qpdf and ghostscript. 
+Cram is essentially a "wrapper" CLI for qpdf and ghostscript.
 Cram is not a fully featured "wrapper", it's just some python code to interface with these libraries so that I could easily edit files in bulk.
 Often times when I get ebooks I get them in bulk and I want to compress or edit them in similar ways so doing each individually felt too time consuming, especially in the case of manga where there can be a ton of volumes.
 
@@ -24,11 +24,15 @@ sudo apt install ghostscript
 sudo apt install qpdf
 ```
 
+ghostscript - postscript language and pdf file interpreter used to compress and optimize pdfs
+
+qpdf - program and C++ library for manipulating and transforming pdf files.
+
 ### optional install script
 #### init.sh
 
-included will be an 'init.sh' bash script which can be used to install all dependencies.
-The script will check if you have already created a virtual env for python and install python dependencies as well as ghostscript and qpdf. It will make also make 'run.sh' executable.
+Included will be an 'init.sh' bash script which can be used to install all dependencies.
+The script will check if you have already created a virtual env for python and install python dependencies as well as ghostscript and qpdf. It will make also make 'run.sh' executable. Do so at your own risk, it might be better for your use case do install everything manually.
 
 init.sh needs to be executable.
 
