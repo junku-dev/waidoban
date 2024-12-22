@@ -8,4 +8,4 @@ if [ ! -d "$target" ]; then
 fi
 
 source venv/bin/activate
-python3 main.py
+python3 main.py || python main.py
