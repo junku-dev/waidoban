@@ -6,10 +6,9 @@ from util import get_page_count, cut_page_info
 
 def choose() -> int:
 	menu:str = '''
-		1. Optimize PDFs - optimize pdfs to reduce file size\n
-		2. Cut Pages - make a copy with a specified page range\n
-		3. Compress to .rar file - compress pdfs for safe and efficient storage\n
-		4. Help
+1. Optimize PDFs - optimize pdfs to reduce file size
+2. Cut Pages - make a copy with a specified page range
+3. Help
 	'''
 	print(menu)
 	
@@ -25,13 +24,17 @@ def app() -> None:
 	while is_quit == 0:
 		files:list = []
 		selection:int = choose()
-		path = getPath()
-		files = get_files(path)
+		path:str = ""
+		files:str = ""
 		
 		if selection == 1:
+			path = getPath()
+			files = get_files(path)
 			process_ebooks(path, files)
 		
 		elif selection == 2:
+			path = getPath()
+			files = get_files(path)
 			cut_page_info()
 			b: int = int(input("\nstarting page: ")) #start
 			e:int = int(input("ending page: ")) #end
@@ -47,7 +50,7 @@ def app() -> None:
 					cut_pages(path, file, b, e)
 					print('done.')
 		
-		elif selection == 3 or selection == 4:
+		elif selection == 3:
 			print('this feature is WIP lol')
 		
 		else:
@@ -58,7 +61,8 @@ def app() -> None:
 		
 		if q == "y":
 			is_quit = 1
-			subprocess.call(f'open {path}', shell=True)
+			if selection != 3:
+				subprocess.call(f'open {path}', shell=True)
 
 
 if __name__ == "__main__":
