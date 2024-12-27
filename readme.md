@@ -8,6 +8,17 @@ Waidoban is not a fully featured "wrapper", it's just some python code to interf
 ## Use Case
 Often times when I get ebooks I get them in bulk and I want to compress or edit them in similar ways so doing each individually felt too time consuming, especially in the case of manga where there can be a ton of volumes.
 
+## Limitations
+To keep it simple, pdfs are normally compressed. There are methods to decompress and then recompress to get the optimal quality and file size, however in the case of pdf files that are comprised of images, it is not that simple. If you are trying to compress pdf files of your manga the reduction in file size may leave a lot to be desired. These files may already be as optimized as possible at their current level of quality. This is where ```ghostscript``` comes into play as ```ghostscript``` can be used to manipulate the images in the pdf files. Images can be reformated using ```-dPDFSETTINGS=/{argument}```. This flag can be used to reformat images with different dpi's to assist with reducing file sizes. 
+
+The following options exist:
+
+- screen: 72dpi ideal for small ereaders and smartphones
+- ebook: 150dpi - ideal for tablets, larger ereader, web apps
+- prepess: 300dpi - maximum quality with little compromise ideal for storage
+
+File sizes will decrease at the cost of quality. Depending on your device, changes in quality will be less noticable.
+
 ## Dependencies
 ### Python Dependencies
 
@@ -59,14 +70,3 @@ chmod +x init.sh
 
 ### run.sh
 A bash script that starts the virtual env and then runs the program via ```python3 main.py```.
-
-## Limitations
-To keep it simple, pdfs are normally compressed. There are methods to decompress and then recompress to get the optimal quality and file size, however in the case of pdf files that are comprised of images, it is not that simple. If you are trying to compress pdf files of your manga the reduction in file size may leave a lot to be desired. These files may already be as optimized as possible at their current level of quality. This is where ```ghostscript``` comes into play as ```ghostscript``` can be used to manipulate the images in the pdf files. Images can be reformated using ```-dPDFSETTINGS=/{argument}```. This flag can be used to reformat images with different dpi's to assist with reducing file sizes. 
-
-The following options exist:
-
-- screen: 72dpi ideal for small ereaders and smartphones
-- ebook: 150dpi - ideal for tablets, larger ereader, web apps
-- prepess: 300dpi - maximum quality with little compromise ideal for storage
-
-File sizes will decrease at the cost of quality. Depending on your device, changes in quality will be less noticable.
