@@ -4,7 +4,8 @@ import re
 from util import check_whitespace
 
 def get_files(path:str) -> list:
-	files:list = []
+	files: list[str] = []
+	f: str = ""
 	try:
 		if os.path.isdir(path):
 			#get all file names in dir
@@ -18,7 +19,7 @@ def get_files(path:str) -> list:
 			return files
 		
 		if os.path.isfile(path):
-			file:str = path.split("/")[-1]
+			file: str = path.split("/")[-1]
 			file = format_file_name(path, file)
 			files.append(file)
 			return files
@@ -30,8 +31,8 @@ def get_files(path:str) -> list:
 
 def format_file_name(path:str, file:str) -> str:
 	try:
-		og_file:str = file
-		special:str = '[^a-zA-Z0-9 \n\.]'
+		og_file: str = file
+		special: str = '[^a-zA-Z0-9 \n\.]'
 		if re.search(special,file) :
 			file = re.sub(special, '',file)
 
@@ -40,7 +41,6 @@ def format_file_name(path:str, file:str) -> str:
 
 		if og_file != file:
 			cmd = f"mv {path}/'{og_file}' {path}/{file}"
-			#print(cmd)
 			subprocess.call(cmd, shell=True)
 		return file
 	except:
@@ -49,5 +49,4 @@ def format_file_name(path:str, file:str) -> str:
 
 def cut_pages(path:str, file:str, begin:int, end:int) -> None:
 	cmd = f"qpdf {path}/{file} --pages . {begin}-{end} -- --replace-input"
-	#print(cmd)
 	subprocess.call(cmd, shell=True)

@@ -13,11 +13,13 @@ To keep it simple, pdfs are normally compressed. There are methods to decompress
 
 The following options exist:
 
-- screen: 72dpi ideal for small ereaders and smartphones
-- ebook: 150dpi - ideal for tablets, larger ereader, web apps
+- screen: 72dpi ideal for small e-readers and smartphones
+- ebook: 150dpi - ideal for tablets, larger e-reader, web apps
 - prepess: 300dpi - maximum quality with little compromise ideal for storage
 
 File sizes will decrease at the cost of quality. Depending on your device, changes in quality will be less noticable.
+For example, I use a nook glowlight 4 to read manga and 150dpi looked amazing and 72dpi looked very good. 72dpi also produces optimal file sizes as my ereader only has 32GB of storage.
+Quality is less of a concern in my case because the nook glowlight 4 uses e-ink and it only has a 4 inch screen. 72dpi is perfectly acceptable on the nook glowlight 4.
 
 ## Dependencies
 ### Python Dependencies

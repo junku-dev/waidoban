@@ -22,10 +22,10 @@ def getPath() -> str:
 def app() -> None:
 	is_quit:int = 0
 	while is_quit == 0:
-		files:list = []
-		selection:int = choose()
-		path:str = ""
-		files:str = ""
+		files: list[str] = []
+		selection: int = choose()
+		path: str = ""
+		file: str = ""
 		
 		if selection == 1:
 			path = getPath()
@@ -37,7 +37,7 @@ def app() -> None:
 			files = get_files(path)
 			cut_page_info()
 			b: int = int(input("\nstarting page: ")) #start
-			e:int = int(input("ending page: ")) #end
+			e: int = int(input("ending page: ")) #end
 			for file in files:
 				if e == -1: #-1 - get the last page
 					end = get_page_count(path, file)
@@ -57,7 +57,7 @@ def app() -> None:
 			print("bad input...\ntry again.\n")
 			continue
 		
-		q:str = input("\nquit? (y/n): ")
+		q: str = input("\nquit? (y/n): ")
 		
 		if q == "y":
 			is_quit = 1
