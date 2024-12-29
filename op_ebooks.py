@@ -14,7 +14,7 @@ def process_ebooks(path:str,files:list) -> None:
                 comp = 'ebook'
 
             elif size == 3:
-                comp = 'prepess'
+                comp = 'prepress'
                 
             else:
                 print('bad input...')

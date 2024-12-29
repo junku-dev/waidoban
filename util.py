@@ -23,4 +23,4 @@ def cut_page_info() -> None:
     print("="*100, "\n"+info+"\n" + "-" * len(info), "\nspecify a range of pages. i.e '1-5'",'\nstarting page > 0.\nyou can use "-1" to get the last page if the length is not known.\n' + '='*100)
 
 def pdf_setting_info() -> None:
-    print("="*100,"\ncompressions options:\n1. screen - 72dpi images\n2.ebook - 150dpi\n3.prepess - 300dpi\n" + "="*100)
+    print("="*100,"\ncompressions options:\n1. screen - 72dpi images\n2.ebook - 150dpi\n3.prepress - 300dpi\n" + "="*100)
