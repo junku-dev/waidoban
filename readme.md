@@ -15,7 +15,7 @@ The following options exist:
 
 - screen: 72dpi ideal for small e-readers and smartphones
 - ebook: 150dpi - ideal for tablets, larger e-reader, web apps
-- prepess: 300dpi - maximum quality with little compromise ideal for storage
+- prepress: 300dpi - maximum quality with little compromise ideal for storage
 
 File sizes will decrease at the cost of quality. Depending on your device, changes in quality will be less noticable.
 For example, I use a nook glowlight 4 to read manga and 150dpi looked amazing and 72dpi looked very good. 72dpi also produces optimal file sizes as my ereader only has 32GB of storage.
