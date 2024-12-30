@@ -1,14 +1,16 @@
 import os
 import subprocess
-from op_ebooks import process_ebooks
-from process_files import get_files, cut_pages
-from util import get_page_count, cut_page_info
+from op_files import op_pdf_scans, compress_pdfs
+from process_files import get_files
+from cut_pages import cut_pages
+from util import get_page_count, cut_page_info, print_help
 
 def choose() -> int:
 	menu:str = '''
-1. Optimize PDFs - optimize pdfs to reduce file size
-2. Cut Pages - make a copy with a specified page range
-3. Help
+1. Optimize PDF Images - optimize images in pdfs to reduce file size
+2. Compress PDFs - compress pdf documents to reduce file size
+3. Cut Pages - make a copy with a specified page range
+4. Help
 	'''
 	print(menu)
 	
@@ -30,9 +32,14 @@ def app() -> None:
 		if selection == 1:
 			path = getPath()
 			files = get_files(path)
-			process_ebooks(path, files)
+			op_pdf_scans(path, files)
 		
 		elif selection == 2:
+			path = getPath()
+			files = get_files(path)
+			compress_pdfs(path, files)
+
+		elif selection == 3:
 			path = getPath()
 			files = get_files(path)
 			cut_page_info()
@@ -50,8 +57,8 @@ def app() -> None:
 					cut_pages(path, file, b, e)
 					print('done.')
 		
-		elif selection == 3:
-			print('this feature is WIP lol')
+		elif selection == 4:
+			print_help()
 		
 		else:
 			print("bad input...\ntry again.\n")
@@ -61,7 +68,7 @@ def app() -> None:
 		
 		if q == "y":
 			is_quit = 1
-			if selection != 3:
+			if selection != 4:
 				subprocess.call(f'open {path}', shell=True)
 
 
