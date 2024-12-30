@@ -24,52 +24,55 @@ def getPath() -> str:
 def app() -> None:
 	is_quit:int = 0
 	while is_quit == 0:
-		files: list[str] = []
-		selection: int = choose()
-		path: str = ""
-		file: str = ""
-		
-		if selection == 1:
-			path = getPath()
-			files = get_files(path)
-			op_pdf_scans(path, files)
-		
-		elif selection == 2:
-			path = getPath()
-			files = get_files(path)
-			compress_pdfs(path, files)
+		try:
+			files: list[str] = []
+			selection: int = choose()
+			path: str = ""
+			file: str = ""
+			
+			if selection == 1:
+				path = getPath()
+				files = get_files(path)
+				op_pdf_scans(path, files)
+			
+			elif selection == 2:
+				path = getPath()
+				files = get_files(path)
+				compress_pdfs(path, files)
 
-		elif selection == 3:
-			path = getPath()
-			files = get_files(path)
-			cut_page_info()
-			b: int = int(input("\nstarting page: ")) #start
-			e: int = int(input("ending page: ")) #end
-			for file in files:
-				if e == -1: #-1 - get the last page
-					end = get_page_count(path, file)
-					print("\nlast page:",end)
-					print(f'creating a new file with range: {b}-{end}')
-					cut_pages(path, file, b, end)
-					print('\ndone.')
-				else:
-					print(f'\ncreating a new file with range: {b}-{e}')
-					cut_pages(path, file, b, e)
-					print('done.')
-		
-		elif selection == 4:
-			print_help()
-		
-		else:
-			print("bad input...\ntry again.\n")
-			continue
-		
-		q: str = input("\nquit? (y/n): ")
-		
-		if q == "y":
-			is_quit = 1
-			if selection != 4:
-				subprocess.call(f'open {path}', shell=True)
+			elif selection == 3:
+				path = getPath()
+				files = get_files(path)
+				cut_page_info()
+				b: int = int(input("\nstarting page: ")) #start
+				e: int = int(input("ending page: ")) #end
+				for file in files:
+					if e == -1: #-1 - get the last page
+						end = get_page_count(path, file)
+						print("\nlast page:",end)
+						print(f'creating a new file with range: {b}-{end}')
+						cut_pages(path, file, b, end)
+						print('\ndone.')
+					else:
+						print(f'\ncreating a new file with range: {b}-{e}')
+						cut_pages(path, file, b, e)
+						print('done.')
+			
+			elif selection == 4:
+				print_help()
+			
+			else:
+				print("bad input...\nmake a selection using 1-4.\n")
+				continue
+			
+			q: str = input("\nquit? (y/n): ")
+			
+			if q == "y":
+				is_quit = 1
+				if selection != 4:
+					subprocess.call(f'open {path}', shell=True)
+		except ValueError:
+			print("Error: invalid input...")
 
 
 if __name__ == "__main__":
