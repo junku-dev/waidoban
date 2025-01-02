@@ -17,7 +17,7 @@ def choose() -> int:
 	sel:int = int(input("select an operation: "))
 	return sel
 
-def getPath() -> str:
+def get_path() -> str:
 	path:str = input("\nenter directory or file path: ")
 	return os.path.abspath(path)
 
@@ -31,17 +31,17 @@ def app() -> None:
 			file: str = ""
 			
 			if selection == 1:
-				path = getPath()
+				path = get_path()
 				files = get_files(path)
 				op_pdf_scans(path, files)
 			
 			elif selection == 2:
-				path = getPath()
+				path = get_path()
 				files = get_files(path)
 				compress_pdfs(path, files)
 
 			elif selection == 3:
-				path = getPath()
+				path = get_path()
 				files = get_files(path)
 				cut_page_info()
 				b: int = int(input("\nstarting page: ")) #start
