@@ -1,7 +1,10 @@
 # waidoban
-Reduce file sizes to make storage easier on ereaders.
+Reduce file sizes to make storage easier on eReaders.
 
 ## About
+Waidoban gets its name from the japanese word "waidoban" which means "wide version". The term is associated with special releases of popular manga series that get re-released in larger format.
+The larger format allows for more chapters to be condensed into one volume decreasing storage needed to keep the entire series. This is why I used the name. Waidoban fits HQ PDFs into a smaller file. 
+
 Waidoban is essentially a "wrapper" CLI for qpdf and ghostscript.
 Waidoban is not a fully featured "wrapper", it's just some python code to interface with these libraries to make editing files easier.
 
@@ -13,6 +16,8 @@ Often times when I get ebooks I get them in bulk and I want to compress or edit 
 2. Compress PDFs - compress pdf documents to reduce file size
 3. Cut Pages - make a copy with a specified page range
 4. Help
+
+<a href="https://junku-dev.github.io/waidoban_results/" target="_blank">waidoban results</a>
 
 ## Limitations
 To keep it simple, pdfs are normally compressed. There are methods to decompress and then recompress to get the optimal quality and file size, however in the case of pdf files that are comprised of images, it is not that simple. If you are trying to compress pdf files of your manga the reduction in file size may leave a lot to be desired. These files may already be as optimized as possible at their current level of quality. This is where ```ghostscript``` comes into play as ```ghostscript``` can be used to manipulate the images in the pdf files. Images can be reformated using ```-dPDFSETTINGS=/{argument}```. This flag can be used to reformat images with different dpi's to assist with reducing file sizes. 
